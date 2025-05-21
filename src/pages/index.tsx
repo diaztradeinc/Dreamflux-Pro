@@ -1,8 +1,12 @@
-export default function Home() {
+import React from 'react';
+
+const HomePage = () => {
   return (
-    <main className="p-10">
-      <h1 className="text-3xl font-bold">Dreamflux</h1>
-      <a href="/generate" className="text-blue-600 underline">Start Drawing</a>
-    </main>
+    <div>
+      <h1>Welcome to Dreamflux</h1>
+      <button>Start Drawing</button>
+    </div>
   );
-}
+};
+
+export default HomePage;
