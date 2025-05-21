@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Select Model | DreamFlux</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <div class="models-container">
+    <h2>Select a Model</h2>
+    <div class="model-grid">
+    </div>
+  </div>
+
+<script>
+const models = [
+  { name: "DreamShaper", thumb: "https://modelfiles.ai-models.org/realistic/dreamshaper-thumb.jpg" },
+  { name: "Deliberate", thumb: "https://modelfiles.ai-models.org/realistic/deliberate-thumb.jpg" },
+  { name: "Juggernaut", thumb: "https://modelfiles.ai-models.org/realistic/juggernaut-thumb.jpg" },
+  { name: "Realistic Vision", thumb: "https://modelfiles.ai-models.org/realistic/realistic-vision-v51-thumb.jpg" },
+  { name: "EpicRealism", thumb: "https://modelfiles.ai-models.org/realistic/epicrealism-thumb.jpg" },
+  { name: "Absolute Reality", thumb: "https://modelfiles.ai-models.org/realistic/absolute-reality-thumb.jpg" },
+  { name: "CyberRealistic", thumb: "https://modelfiles.ai-models.org/realistic/cyberrealistic-thumb.jpg" },
+  { name: "A-Zovya Photoreal", thumb: "https://modelfiles.ai-models.org/realistic/azovya-thumb.jpg" },
+  { name: "majicMIX realistic", thumb: "https://modelfiles.ai-models.org/realistic/majicmix-thumb.jpg" },
+  { name: "Anything V3", thumb: "https://modelfiles.ai-models.org/anime/anything-v3-thumb.jpg" },
+  { name: "Counterfeit", thumb: "https://modelfiles.ai-models.org/anime/counterfeit-thumb.jpg" },
+  { name: "PastelMix", thumb: "https://modelfiles.ai-models.org/anime/pastelmix-thumb.jpg" },
+  { name: "ReV Animated", thumb: "https://modelfiles.ai-models.org/realistic/rev-animated-thumb.jpg" },
+  { name: "Analog Madness", thumb: "https://modelfiles.ai-models.org/realistic/analog-madness-thumb.jpg" },
+  { name: "Protogen", thumb: "https://modelfiles.ai-models.org/realistic/protogen-thumb.jpg" },
+  { name: "MeinaMix", thumb: "https://modelfiles.ai-models.org/anime/meinamix-thumb.jpg" },
+  { name: "ChilloutMix", thumb: "https://modelfiles.ai-models.org/realistic/chilloutmix-thumb.jpg" },
+  { name: "AbyssOrangeMix3 (AOM3)", thumb: "https://modelfiles.ai-models.org/anime/aom3-thumb.jpg" }
+];
+
+const grid = document.querySelector('.model-grid');
+models.forEach(m => {
+  const div = document.createElement('div');
+  div.className = 'model-card';
+  div.innerHTML = \`
+    <img src="\${m.thumb}" alt="\${m.name}" />
+    <span>\${m.name}</span>
+  \`;
+  div.onclick = () => {
+    localStorage.setItem("selectedModel", m.name);
+    localStorage.setItem("selectedImage", m.thumb);
+    window.location.href = "create.html";
+  };
+  grid.appendChild(div);
+});
+</script>
+</body>
+</html>

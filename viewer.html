@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Viewer | DreamFlux</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <div class="viewer">
+    <button class="back-button" onclick="goBack()">← Back</button>
+    <img id="generatedImage" src="" alt="Generated Output" />
+    <a id="downloadLink" download="dreamflux.png" class="download-button">Download</a>
+  </div>
+
+<script>
+function goBack() {
+  window.location.href = "create.html";
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const params = new URLSearchParams(window.location.search);
+  const imageUrl = params.get("url");
+  if (imageUrl) {
+    document.getElementById("generatedImage").src = imageUrl;
+    document.getElementById("downloadLink").href = imageUrl;
+  }
+});
+</script>
+</body>
+</html>
